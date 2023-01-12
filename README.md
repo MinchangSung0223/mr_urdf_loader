@@ -5,22 +5,11 @@
 `numpy` , `modern_robotics` , `urdfpy` should be preinstalled.
 
 ## Installing the Package ##
-
-### Recommended Method ###
-
-Use [pip](https://en.wikipedia.org/wiki/Pip_(package_manager)) to install by
-running
-
+```bash
+  pip install mr_urdf_loader
 ```
-pip install numpy
-pip install modern_robotics
-pip install urdfpy
 
-pip install .
-``` 
 
-If pip is not preinstalled, check 
-[here](https://pip.pypa.io/en/stable/installing/) for help installing pip. 
 
 ## Importing the Package ##
 
