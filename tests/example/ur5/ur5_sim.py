@@ -36,7 +36,9 @@ numJoints = p.getNumJoints(robotID)
 p.resetBasePositionAndOrientation(robotID, [0, 0, 0], [0, 0, 0, 1])
 for i in range(0,numJoints):
 	p.setJointMotorControl2(robotID, i, p.VELOCITY_CONTROL, targetVelocity=0, force=0)
-	
+for i in range(0,numJoints):
+	p.resetJointState(robotID, i, np.pi/3.0)
+		
 useRealTimeSim = False
 p.setRealTimeSimulation(useRealTimeSim)
 timeStep = 1/240.0;
@@ -45,8 +47,8 @@ p.setTimeStep(timeStep)
 q = [0,0,0,0,0,0]
 q_dot = [0,0,0,0,0,0]
 q_ddot = [0,0,0,0,0,0]
-g = np.array([0,0,-9.8])
-Ftip = [0,0,0,0,0,0]
+g = np.array([0,0,-9.8]).T
+Ftip = np.array([0,0,0,0,0,0]).T
 
 
 while p.isConnected():
@@ -69,12 +71,13 @@ while p.isConnected():
 	# Modern Robotics Jacobian	
 	mr_Jb= mr.JacobianBody(Blist, q)
 	mr_Js= mr.JacobianSpace(Slist, q)	
-	mr_Ja = AnalyticJacobianBody(M,Blist, q)	# pb_j = mr_Ja	
+	#mr_Ja = AnalyticJacobianBody(M,Blist, q)	# pb_j = mr_Ja	
 	
 	#pybullet InverseDynamics		
-	print(q)
+	#print(q)
 	pb_ID= np.array(p.calculateInverseDynamics(robotID,[q[0],q[1],q[2],q[3],q[4],q[5] ],[q_dot[0],q_dot[1],q_dot[2],q_dot[3],q_dot[4],q_dot[5] ] ,[0,0,0,0,0,0] ))
 	#modern_robotics InverseDynamics
+	#print(Glist.shape)
 	mr_ID =mr.InverseDynamics(q, q_dot, q_ddot, g, Ftip, Mlist,  Glist, Slist)
 	
 	print("=============pb_Tsb=============")
@@ -88,7 +91,7 @@ while p.isConnected():
 	
 	#set torques
 	for i in range(0,actuated_joints_num):		
-		p.setJointMotorControl2(robotID, i+1, p.TORQUE_CONTROL,force=mr_ID[i])
+		p.setJointMotorControl2(robotID, i+1, p.TORQUE_CONTROL,force=pb_ID[i])
 		#p.setJointMotorControl2(robotID, i+1, p.TORQUE_CONTROL,force=pb_ID[i])
 				
 	p.stepSimulation()

@@ -69,7 +69,7 @@ while p.isConnected():
 	# Modern Robotics Jacobian	
 	mr_Jb= mr.JacobianBody(Blist, q)
 	mr_Js= mr.JacobianSpace(Slist, q)	
-	mr_Ja = AnalyticJacobianBody(M,Blist, q)	# pb_j = mr_Ja	
+	#mr_Ja = AnalyticJacobianBody(M,Blist, q)	# pb_j = mr_Ja	
 	
 	#pybullet InverseDynamics		
 	print(q)

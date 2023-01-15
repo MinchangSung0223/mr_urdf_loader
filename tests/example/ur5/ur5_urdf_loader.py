@@ -2,20 +2,21 @@ import numpy as np
 np.set_printoptions(precision=6, suppress=True)
 from mr_urdf_loader import loadURDF
 from modern_robotics import *
-urdf_name = "data/ur5/ur5.urdf"
+urdf_name = "ur5/ur5.urdf"
 MR=loadURDF(urdf_name)
 M  = np.array(MR["M"])
 Slist  = np.array(MR["Slist"])
 Mlist  = np.array(MR["Mlist"])
+print(Mlist.shape)
 Glist  = np.array(MR["Glist"])
 Blist  = np.array(MR["Blist"])
 actuated_joints_num = MR["actuated_joints_num"]
 
-thetalist = np.array([0,0,np.pi/2.0])
-dthetalist = np.array([0,0,0.1])
-ddthetalist = np.array([0,0,0])
-g = np.array([0,0,-9.8])
-Ftip = [0,0,0,0,0,0]
+thetalist = np.array([np.pi/3.0,np.pi/3.0,np.pi/3.0,np.pi/3.0,np.pi/3.0,np.pi/3.0]).T
+dthetalist = np.array([0,0,0,0,0,0]).T
+ddthetalist = np.array([0,0,0,0,0,0]).T
+g = np.array([0,0,-9.8]).T
+Ftip = np.array([0,0,0,0,0,0]).T
 
 
 #print(M)

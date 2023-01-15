@@ -1,13 +1,13 @@
 [build-system]
-requires = ["flit"]
+requires = ["flit","numpy==1.24.1","networkx==3.0"]
 build-backend = "flit.buildapi"
 
 [project]
 name =  "mr-urdf-loader"
 authors = [
-    {name = "Daniel Ciborowski", email = "dciborow@microsoft.com"},
+    {name = "Minchang Sung", email = "tjdalsckd@gmail.com"},
 ]
-description = "Sample Python Project for creating a new Python Module"
+description = "Modern Robotics URDF Load Module"
 readme = "README.md"
 classifiers = [
     "Development Status :: 3 - Alpha",
@@ -21,7 +21,7 @@ classifiers = [
 ]
 requires-python = ">=3.7"
 dynamic = ["version"]
-
+dependencies = ["flit","numpy==1.23.0","networkx==2.4"]
 [project.optional-dependencies]
 spark = [
     "pyspark>=3.0.0"
@@ -43,6 +43,7 @@ test = [
     "pytest==7.1.0",
     "pytest-github-actions-annotate-failures",
     "shellcheck-py==0.8.0.4"
+    
 ]
 
 [project.urls]
