@@ -82,7 +82,7 @@ def loadURDF(urdf_name):
 		child_M_R, child_M_p =mr.TransToRp(child_M)
 		child_w = np.array(child_M_R @ np.array(joint.axis).T)
 		w_.append( child_w ) 
-		child_M[0:3,0:3] = np.eye(3)
+		#child_M[0:3,0:3] = np.eye(3)
 		CoM_M =  child_M@ child_link.inertial.origin
 
 		M_list.append(CoM_M)
