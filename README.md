@@ -52,7 +52,7 @@ changed. Importing is still required before using.
 
 
 ### 4. Pybullet Error
-Pybullet의 경우 마지막 링크 urdf를 다음과 같이 inertial 정보를 기입하지 않는 경우 임의의 값으로 수정하여 Dynamics를 해석하는 듯 싶다.
+Pybullet의 경우 마지막 링크 urdf에 inertial이 기입되지 않은 경우 동역학 계산이 달라진다.
 ```
 <link name="eef_link" />
 
