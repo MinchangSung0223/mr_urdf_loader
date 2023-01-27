@@ -9,6 +9,14 @@
   pip install mr_urdf_loader
 ```
 
+or
+
+```bash
+  git clone https://github.com/tjdalsckd/mr_urdf_loader.git
+  cd mr_urdf_loader
+  pip install .
+```
+
 
 
 ## Importing the Package ##
