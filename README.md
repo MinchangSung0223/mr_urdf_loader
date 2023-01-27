@@ -25,8 +25,17 @@ To import the package, we recommend using
 
 ```
 from mr_urdf_loader import loadURDF
-MRSetup = loadURDF(urdf_name)
+urdf_name = "./test.urdf"
+MR=loadURDF(urdf_name)
+M  = MR["M"]
+Slist  = MR["Slist"]
+Mlist  = MR["Mlist"]
+Glist  = MR["Glist"]
+Blist  = MR["Blist"]
+
 ```
+
+
 ## Examples ##
 ### 1. Simple MR test
 ```bash
