@@ -39,7 +39,7 @@ Blist  = MR["Blist"]
 ## Examples ##
 ### 1. Simple MR test
 ```bash
-cd example/3DoF
+cd tests/example/3DoF
 python3 urdf_loader.py
 ```
 ![image](https://user-images.githubusercontent.com/53217819/202921164-f450da46-58bd-4335-a0b7-018957b851b0.png)
@@ -47,7 +47,7 @@ python3 urdf_loader.py
 
 ### 2. Pybullet Simulation
 ```bash
-cd example/3DoF
+cd tests/example/3DoF
 pip install pybullet
 python3 sim.py
 ```
@@ -56,7 +56,7 @@ python3 sim.py
 
 ### 3. UR5 Simulation
 ```bash
-cd example/ur5
+cd tests/example/ur5
 python3 ur5_sim.py
 ```
 ![image](https://user-images.githubusercontent.com/53217819/202973442-54be472e-c43e-4569-981f-bc87bf00b678.png)
