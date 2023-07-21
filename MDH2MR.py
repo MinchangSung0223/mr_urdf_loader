@@ -96,6 +96,14 @@ thetalist = np.array([0 ,0 ,0 ,0 ,0, 0])  # Sample thetalist
 
 Blist,M = JacobianBodyMDH(MDH, thetalist)
 Slist = Adjoint(M)@ Blist
+Slist_flip = np.zeros(len(thetalist),1) 
+Blist_flip = np.zeros(len(thetalist),1) 
+Slist_flip[0:3,:] = Slist[3:6,:]
+Slist_flip[3:6,:] = Slist[0:3,:]
+Blist_flip[0:3,:] = Blist[3:6,:]
+Blist_flip[3:6,:] = Blist[0:3,:]
 print("M:\n" ,M)
-print("Blist : \n",Blist)
-print("Slist : \n",Slist)
+print("LR Blist : \n",Blist)
+print("LR Slist : \n",Slist)
+print("MR Blist : \n",Blist_flip)
+print("MR Slist : \n",Slist_flip)
