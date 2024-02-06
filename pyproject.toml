@@ -1,6 +1,6 @@
 [build-system]
-requires = ["flit","numpy==1.24.1","networkx==3.0"]
-build-backend = "flit.buildapi"
+requires = ["flit_core >=2,<4","numpy==1.24.1","networkx==3.0"]
+build-backend = "flit_core.buildapi"
 
 [project]
 name =  "mr-urdf-loader"
