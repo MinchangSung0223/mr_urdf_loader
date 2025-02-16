@@ -16,12 +16,10 @@ classifiers = [
     "Programming Language :: Python :: 3 :: Only",
     "Programming Language :: Python :: 3.7",
     "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10"
 ]
-requires-python = ">=3.7"
+requires-python = ">=3.7, <3.9"
 dynamic = ["version"]
-dependencies = ["flit","numpy==1.23.0","networkx==2.4"]
+dependencies = ["flit","numpy==1.23.0","networkx==2.2, <2.5"]
 [project.optional-dependencies]
 spark = [
     "pyspark>=3.0.0"
