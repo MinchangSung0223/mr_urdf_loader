@@ -68,7 +68,7 @@ not installed, you need to move the package if the working directory is
 changed. Importing is still required before using.
 
 
-### 4. Pybullet Error
+### 4. Pybullet Issue
 Pybullet의 경우 마지막 링크 urdf에 inertial이 기입되지 않은 경우 동역학 계산이 달라진다.
 ```
 <link name="eef_link" />
