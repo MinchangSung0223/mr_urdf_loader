@@ -69,12 +69,13 @@ changed. Importing is still required before using.
 
 
 ### 4. Pybullet Issue
-Pybullet의 경우 마지막 링크 urdf에 inertial이 기입되지 않은 경우 동역학 계산이 달라진다.
+In the case of PyBullet, if the final link in the URDF does not include an <inertial> tag, the dynamics calculations will differ.
+
 ```
 <link name="eef_link" />
 
 ```
-따라서 다음처럼 mass가 없는 링크에도 inertial 정보를 기입해야 Modern robotics library와 동일하게 계산된다.
+Therefore, to ensure consistent dynamic behavior with the Modern Robotics library, even links with zero mass should explicitly include inertial information as follows:
 
 ```
 <link name="eef_link">
